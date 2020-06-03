@@ -4,13 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Articulos extends Model
+class Articulo extends Model
 {
-    protected $table='articulo';
-
+    protected $table='articulos';
     public function persona(){
         return $this->belongsTo('App\User','persona_id');
     }
-
-
 }
