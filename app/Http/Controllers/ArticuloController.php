@@ -166,13 +166,4 @@ class ArticuloController extends Controller
             'buscar'=>$buscar 
         ));
     }
-
-
-  
-
-
-
-
-
-
 }

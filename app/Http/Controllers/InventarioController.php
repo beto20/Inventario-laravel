@@ -97,8 +97,4 @@ class InventarioController extends Controller
             'buscar'=>$buscar 
         ));
     }
-
-
-  
-
 }

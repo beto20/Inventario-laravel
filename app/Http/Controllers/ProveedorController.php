@@ -39,8 +39,6 @@ class ProveedorController extends Controller
             "message"=>'Proveedor agregado correctamente'
         ));
 
-
-
     }
 
 

@@ -10,19 +10,39 @@
 
     <title>Mi inventario online</title>
 
-    <!-- Scripts -->
+    <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>
+-->
+
+
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
      
 
-    <!-- Styles -->
+    <!-- Styles 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{URL::asset('css/estilos.css')}}"/>
+-->
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
 
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -43,7 +63,7 @@
                         <a class="nav-link" href="{{url('/')}}">Inicio</a>
                         <a class="nav-link" href="{{url('/producto')}}">Producto</a>
                         <a class="nav-link" href="{{url('/nosotros')}}">Nosotros</a>
-                        <a class="nav-link" href="{{url('/blog')}}">Blog y preguntas frecuentes</a>
+                        <a class="nav-link" href="{{url('/blog')}}">Blog informativo</a>
 
                     </ul>
 
@@ -60,27 +80,31 @@
                                 </li>
                             @endif
                         @else
+
+
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        {{ __('Mi inventario') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('perfil') }}">
-                                        {{ __('Mi perfil') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Cerrar sesion') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                            {{ __('Panel de inicio') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('perfil') }}">
+                                            {{ __('Mi perfil') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Cerrar sesion') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
                             </li>
                         @endguest
                     </ul>
@@ -93,13 +117,139 @@
         </main>
     </div>
 
- 
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-4" style="background:#45526E">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">¿Que hacemos?</h6>
+            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                consectetur
+                adipisicing elit.</p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Producto</h6>
+            <p>
+                <a href="{{url('/')}}">MiInventarioOnline</a>
+            </p>
+            
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Links</h6>
+            <p>
+                <a href="{{url('/nosotros')}}">Nosotros</a>
+            </p>
+            <p>
+                <a href="{{url('/blog')}}">Blog informativo</a>
+            </p>
+            <p>
+                <a href="{{url('/login')}}">Inicio de sesion</a>
+            </p>
+            <p>
+                <a href="{{url('/producto')}}">Producto</a>
+            </p>
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contactenos</h6>
+            <p> Lima, 15024, PE</p>
+            <p> info@gmail.com</p>
+            <p> + 01 234 567 88</p>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr>
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <p class="text-center text-md-left">© 2020 Copyright:
+                <a href="{{url('/')}}">
+                <strong> MiInventarioOnline.com</strong>
+                </a>
+            </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons
+            <div class="text-center text-md-right">
+                <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-google-plus-g"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                </ul>
+            </div>
+
+            </div> -->
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+    </footer>
+    <!-- Footer -->
+    
 
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 
 </body>
+
+
 </html>

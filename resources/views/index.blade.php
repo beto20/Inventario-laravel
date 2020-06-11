@@ -2,14 +2,6 @@
 
 
 @section('content')
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
- 
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -36,6 +28,37 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
+<br>
+
+<h2 style="text-align:center; ">Video instructivo</h2>
+<br>
+
+<div>
+  <video src="" style="max-width:100%; max-height:100%"></video>
+</div>
+
+<div id="content" style=" padding: 100px 100px 200px 100px; ">
+    <div style="float:left;" class="col-md-5">
+      <div class="form-group">
+        <h2>Misión</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Non assumenda nostrum illum cum. Eum, autem? Sit fugit, velit 
+          quisquam molestias eos, ex sequi sunt mollitia, omnis porro voluptas 
+          placeat optio.</p>
+
+      </div>
+    </div>
+    <div style="float:right;" class="col-md-5">
+        <div class="form-group">
+          <h2>Visión</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Non assumenda nostrum illum cum. Eum, autem? Sit fugit, velit 
+            quisquam molestias eos, ex sequi sunt mollitia, omnis porro voluptas 
+            placeat optio.</p>
+
+        </div>
+    </div>
 </div>
 
 
