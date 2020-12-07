@@ -11,5 +11,7 @@ class Articulo extends Model
         return $this->belongsTo('App\User','persona_id');
     }
 
+
+
     protected $primaryKey='id';
 }

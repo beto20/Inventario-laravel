@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Articulo;
+use App\Exports\UsersExport;
+use App\Exports\ArticuloExport;
+use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,6 @@ use App\Articulo;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('index');
 });
@@ -34,7 +36,7 @@ Route::get('/soporte',array(
 ));
 
 
-Route::get('/inicioArticulos/{inventario_id}',array(
+Route::get('/inicioArticulos',array(
     'as'=>'inicioArticulos',
     'middleware'=>'auth',
     'uses'=>'HomeController@seleccionArticulos'
@@ -45,12 +47,13 @@ Route::get('/inicioProveedores',array(
     'middleware'=>'auth',
     'uses'=>'HomeController@seleccionProveedores'
 ));
-
+/*
 Route::get('/inicioInventarios',array(
     'as'=>'inicioInventarios',
     'middleware'=>'auth',
     'uses'=>'HomeController@seleccionInventarios'
 ));
+*/
 
 Auth::routes();
 
@@ -181,8 +184,8 @@ Route::get('/buscarProveedor/{buscar?}', array(
 
 /*--------------------------------------------------------------------------------*/ 
 
-//RUTAS PARA LOS INVENTARIOS
-
+//RUTAS PARA LOS INVENTARIOS(NO DISPONIBLE, SOLO EN VERSION PRO)
+/*
 Route::get('agregarInventario',array(
     'as'=>'agregarInventario',
     'middleware'=>'auth',
@@ -228,3 +231,14 @@ Route::get('/buscarInventario/{buscar?}', array(
     'uses'=>'InventarioController@buscarInventario'
     
 ));
+*/
+
+//EXPORTACION A EXCEL
+
+//Route::get('articulo-list-excel','ArticuloController@exportarExcel')->name('articulos.excel');
+
+Route::get('/exportarExcel/{user_id}',[
+    'as' => 'exportarExcel',
+    'uses' => 'ArticuloController@exportarExcel'
+]);
+

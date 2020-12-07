@@ -11,7 +11,7 @@
         <div class="col-sm">
             <img src="{{asset('img/inventario2.jpg')}}" alt="" style="margin: 10px 0px 20px 0px; width: 200px; height: 190px;">
             <br>
-        <a href="{{url('/inicioInventarios')}}" class="btn btn-info">Ver inventario</a> 
+        <a href="{{url('/inicioArticulos')}}" class="btn btn-info">Ver inventario</a> 
         </div>
         <div class="col-sm">
             <img src="{{asset('img/proveedores.jpg')}}" alt="" style="margin: 10px 0px 20px 0px; width: 290px; height: 190px;">

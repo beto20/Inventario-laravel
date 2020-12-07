@@ -5,7 +5,11 @@
     <div class="container" >
         <div class="row">
             <div class="col-4">
+    
                 <a href="{{url('agregarArticulo')}}" class="btn btn-success" style="margin:33px 0px 0px 50px"> Agregar articulo</a>
+                <br>
+                <a href="{{url('/inicioArticulos')}}" class="btn btn-danger" style="margin:33px 0px 0px 50px">Regresar</a>
+            
             </div>
             <div class="col-4">
                 <form action="{{url('/buscarArticulo')}}" role="buscar" method="get" class="col-md-10"> 

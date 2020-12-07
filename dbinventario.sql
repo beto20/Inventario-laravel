@@ -319,3 +319,11 @@ CREATE TABLE soporte (
   CONSTRAINT pk_soporte PRIMARY KEY(id), 
   CONSTRAINT fk_soporte_users FOREIGN KEY (user_id) REFERENCES users(id) 
 )ENGINE=INNODB
+
+
+
+insert into `articulos` (`user_id`, `inventario_id`, `nombre`, `categoria`, 
+`descripcion`, `cantidad`, `tipo`, `stock_max`, `stock_min`, `p_venta`, 
+`costo`, `imagen`, `updated_at`, `created_at`) 
+values (6, 6, 'Pistas de carritos', 'Juguetes', 'Juguete para niños de 5 a 10 años', 10, 
+'cajas', 25, 15, 45, 25, 'pista_Carro.jpg', '2020-06-12 06:52:06', '2020-06-12 06:52:06')

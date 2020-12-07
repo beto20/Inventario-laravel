@@ -44,7 +44,8 @@ class HomeController extends Controller
             'proveedores'=>$proveedores
         ));
     }
-
+    
+    /*
     public function seleccionInventarios()
     {
         $inventarios=Inventario::orderBy('id','desc')->paginate(5);
@@ -52,6 +53,7 @@ class HomeController extends Controller
             'inventarios'=>$inventarios
         ));
     }
+    */
 
     public function soporte(){
         return view('soporte');

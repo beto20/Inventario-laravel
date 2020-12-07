@@ -30,14 +30,14 @@
   </a>
 </div>
 <br>
-
+<!--
 <h2 style="text-align:center; ">Video instructivo</h2>
 <br>
 
 <div>
   <video src="" style="max-width:100%; max-height:100%"></video>
 </div>
-
+-->
 <div id="content" style=" padding: 100px 100px 200px 100px; ">
     <div style="float:left;" class="col-md-5">
       <div class="form-group">

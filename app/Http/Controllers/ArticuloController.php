@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
+
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ArticulosExport;
+
 use App\Articulo;
 
 class ArticuloController extends Controller
@@ -75,13 +79,9 @@ class ArticuloController extends Controller
     }
 
     public function eliminarArticulo($articulo_id){
-        //$user=\Auth::user();
-        //$articulo=Articulo::find('$articulo_id');
-        //Storage::disk('imagenes')->delete($articulo->imagen);
-        //$articulo->delete();
         Articulo::destroy($articulo_id);
         $message=array('message'=>'Articulo eliminado');
-        return redirect()->route('home')->with($message);
+        return redirect()->route('inicioArticulos')->with($message);
     }
 
     public function editarArticulo($articulo_id){
@@ -127,7 +127,7 @@ class ArticuloController extends Controller
 
 
         $articulo->update();
-        return redirect()->route('home')->with(array(
+        return redirect()->route('inicioArticulos')->with(array(
             "message"=>'Articulo actualizado correctamente'
         ));
 
@@ -159,11 +159,31 @@ class ArticuloController extends Controller
             }
         }
 
-        $articulo=Articulo::where('categoria','LIKE','%'.$buscar.'%')->orderBy($column, $order)->paginate(5);
+        $articulo=Articulo::where('nombre','LIKE','%'.$buscar.'%')->orderBy($column, $order)->paginate(5);
 
         return view('articulo.buscarArticulo',array(
             'articulos'=>$articulo,
             'buscar'=>$buscar 
         ));
     }
+
+/*
+    public function exportarExcel(){
+        return Excel::download(new ArticulosExport,'articulos-list.xlsx');
+    }
+
+*/
+    public function exportarExcel(Request $request)
+    {
+        $articulo= new Articulo();
+        $user=\Auth::user();
+        $articulo->user_id=$user->id;
+
+        return Excel::download(new ArticulosExport($request->user_id=$user->id), 'MttRegistrations.xlsx');
+
+        //$articulo->user_id=$user->id;
+    }
+
+
+
 }

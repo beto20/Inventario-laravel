@@ -27,7 +27,7 @@
         <hr>
         <div id="content" style=" padding-bottom:25px; ">
             <div style="float:left;" class="col-md-6">
-            <input type="hidden" name="inventario_id" value="{{$inventario_id}}" required>
+            <input type="hidden" name="inventario_id" value="{{$inventario_id=0}}" required>
                 <div class="form-group">
                     <label for="nombre">Nombre del articulo</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}">
