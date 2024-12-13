@@ -2,39 +2,40 @@
 
 namespace App\Exports;
 
-use App\Articulo;
+use App\Producto;
+use DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ArticulosExport implements FromCollection
+class ArticulosExport implements FromCollection, WithHeadings, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
-    */
-
-    protected $user_id;
-
-    function __construct($user_id) {
-            $this->user_id = $user_id;
+    */  
+    public function headings(): array
+    {
+        return [
+            'ID',
+            'CATEGORÍA',
+            'CLAVE',
+            'NOMBRE',
+            'DETALLES'
+        ];
     }
-    
-    
 
     public function collection()
     {
-        return Articulo::where('user_id',$this->user_id)->get()([
-            'nombre', 'cantidad'
-        ]);
+        $productos = DB::table('productos')->select('id','categoria_id','clave_producto','nombre_producto','detalles')->get();
+        return $productos;
     }
-
-    /*
-
-
-
-
-    public function collection()
+    
+    public function styles(Worksheet $sheet)
     {
-        return Articulo::all();
+        // Aplica negritas a la primera fila (encabezados)
+        return [
+            1 => ['font' => ['bold' => true]],
+        ];
     }
-
-    */
 }

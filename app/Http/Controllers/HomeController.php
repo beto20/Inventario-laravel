@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Articulo;
 use App\Proveedor;
 use App\Inventario;
+use App\CentrosTrabajo;
+use App\Producto;
+use App\Categoria;
+use App\Facturacion;
+use DB;
+
 class HomeController extends Controller
 {
     /**
@@ -24,23 +30,25 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+        
     public function index()
     {
-        return view('home');
-    }
+        $conteo = CentrosTrabajo::count();
+        $conteoP = Producto::count();
+        $conteoPv = Proveedor::count();
+        $conteoC = Categoria::count();
+        $conteoA = Articulo::sum('cantidad');
+        $conteoIn = Articulo::count();
+        $conteoF = Facturacion::count();
+        $totalFa = Facturacion::sum('total');
 
-    public function seleccionArticulos()
-    {
-        $articulos=Articulo::orderBy('id','desc')->paginate(5);
-        return view('inicioArticulos', array(
-            'articulos'=>$articulos
-        ));
+        return view('inicio',compact('conteo', 'conteoP', 'conteoPv', 'conteoC', 'conteoA', 'conteoIn','conteoF','totalFa'));
     }
 
     public function seleccionProveedores()
     {
         $proveedores=Proveedor::orderBy('id','desc')->paginate(5);
-        return view('inicioProveedores', array(
+        return view('Proveedores.inicioProveedores', array(
             'proveedores'=>$proveedores
         ));
     }

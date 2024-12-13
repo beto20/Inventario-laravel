@@ -48,7 +48,7 @@
     <hr>
     <h2 style="text-align:center">Busqueda: {{$buscar}}</h2>
     <br>
-    @include('articulo.listaArticulo')
+    @include('inventario.listaArticulo')
     <br>
     <div class="fa-pull-right" >
         {{$articulos->links()}}

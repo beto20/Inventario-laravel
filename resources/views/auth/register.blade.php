@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.appLoggin')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registro') }}</div>
+                <div class="card-header text-center">{{ __('Registro de Usuarios') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -39,6 +39,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Rol del Usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="role" id="role" class="form-control">
+                                    <option value="">Selecciona un Rol...</option>
+                                    <option value="admin">Administrador</option>
+                                    <option value="user">Usuario</option>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="empresa" class="col-md-4 col-form-label text-md-right">{{ __('Empresa') }}</label>
@@ -51,6 +63,22 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+                        @php
+                            use App\CentrosTrabajo;
+                            $centros = CentrosTrabajo::all();
+                        @endphp
+                        <div class="form-group row">
+                            <label for="centro" class="col-md-4 col-form-label text-md-right">{{ __('Centro de Trabajo') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="centro" id="centro" class="form-control" value="{{ old('centro') }}" required autocomplete="centro">
+                                    <option value="">Seleccione un centro de trabajo...</option>
+                                    @foreach($centros as $centro)
+                                    <option value="{{ $centro->clave_ct }}">{{ $centro->clave_ct }} | {{ $centro->nombre_ct }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -83,7 +111,7 @@
                                     {{ __('Registrar') }}
                                 </button>
 
-                                <a href="#"><span class="btn btn-danger"> {{ __('Cancelar') }}</span></a>
+                                <a href="/"><span class="btn btn-danger"> {{ __('Cancelar') }}</span></a>
 
 
                             </div>

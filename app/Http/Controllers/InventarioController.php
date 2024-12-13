@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Inventario;
+use App\Categoria;
+use App\Producto;
+use App\Articulo;
 
 class InventarioController extends Controller
 {
@@ -96,5 +99,12 @@ class InventarioController extends Controller
             'inventarios'=>$inventario,
             'buscar'=>$buscar 
         ));
+    }
+
+    public function getProds($categoryId){
+        
+        $products = Producto::where('categoria_id', $categoryId)->get();
+        return response()->json($products);
+
     }
 }
