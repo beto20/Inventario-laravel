@@ -8,11 +8,6 @@
         <hr>
         <div class="row">
             <div class="col-4">
-                <img src="{{url('/imagen/'.$articulo->imagen)}}" style="width: 325px; height: 450px;">
-                <a href="{{url('/inicioArticulos')}}" class="btn btn-danger">Regresar</a>
-                <a href="{{ url('/editarArticulo/'.$articulo->id) }}" class="btn btn-warning">Editar</a>
-            </div>
-            <div class="col-4">
                 <h4>Categoria: {{$articulo->categoria}} </h4>
                 <br>
                 <h4>Descripcion: {{$articulo->descripcion}} </h4>
@@ -33,6 +28,11 @@
                 <h4>Stock minimo: {{$articulo->stock_min}} </h4>
                 <br>
                 
+            </div>
+            <div class="col-4">
+                <br><br><br><br><br>
+                <a href="{{url('/inicioArticulos')}}" class="btn btn-danger">Regresar</a>
+                <a href="{{ url('/editarArticulo/'.$articulo->id) }}" class="btn btn-success">Editar</a>
             </div>
         </div>
     </div>
